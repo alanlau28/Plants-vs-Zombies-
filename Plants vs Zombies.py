@@ -113,12 +113,12 @@ def draw_game():
     for i in bullets:
         screen.blit(i.image, (i.x - 60, i.y - 24))
         i.move()
-        i.draw(WHITE)
+        i.draw(WHITE) #debugging 
         if i.collide(enemies) or i.x > 1024:
             bullets.remove(i)
 
     for i in collapse(plant_lane_map):
-        i.draw(BLACK)
+        i.draw(BLACK) # debugging
         if i.health <= 0:
             plant_lane_map[i.x // 128][(i.y - 80) // 128] = None
         if not occupied[(i.y - 80) // 128]:
@@ -138,7 +138,7 @@ def draw_game():
 
     for i in enemies:
         i.move()
-        i.draw(RED)
+        i.draw(RED) #debugging
         if i.x <= 0:
             lives-=1
         if not occupied[(i.y - 80) // 128]:
